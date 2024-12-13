@@ -8,7 +8,7 @@
         v-if="error"
         class="row justify-content-center"
       >
-        <div class="col-8">
+        <div class="col-12 col-md-8">
           <div
             class="alert alert-danger"
             role="alert"
@@ -24,13 +24,24 @@
       </div>
 
       <div
-        v-if="!$root.customize.disablePoweredBy"
         class="row mt-4"
       >
         <div class="col form-text text-center">
-          {{ $t('text-powered-by') }}
-          <a href="https://github.com/Luzifer/ots"><i class="fab fa-github" /> OTS</a>
-          {{ $root.version }}
+          <span
+            v-if="!$root.customize.disablePoweredBy"
+            class="mx-2"
+          >
+            {{ $t('text-powered-by') }}
+            <a href="https://github.com/Luzifer/ots"><i class="fab fa-github" /> OTS</a>
+            {{ $root.version }}
+          </span>
+          <span
+            v-for="link in $root.customize.footerLinks"
+            :key="link.url"
+            class="mx-2"
+          >
+            <a :href="link.url">{{ link.name }}</a>
+          </span>
         </div>
       </div>
     </div>
@@ -89,6 +100,10 @@ export default {
   mounted() {
     window.onhashchange = this.hashLoad
     this.hashLoad()
+
+    if (!this.$root.isSecureEnvironment) {
+      this.error = this.$t('alert-insecure-environment')
+    }
   },
 
   name: 'App',

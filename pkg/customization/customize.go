@@ -23,6 +23,7 @@ type (
 	// Customize holds the structure of the customization file
 	Customize struct {
 		AppIcon              string `json:"appIcon,omitempty" yaml:"appIcon"`
+		AppIconDark          string `json:"appIconDark,omitempty" yaml:"appIconDark"`
 		AppTitle             string `json:"appTitle,omitempty" yaml:"appTitle"`
 		DisableAppTitle      bool   `json:"disableAppTitle,omitempty" yaml:"disableAppTitle"`
 		DisablePoweredBy     bool   `json:"disablePoweredBy,omitempty" yaml:"disablePoweredBy"`
@@ -40,6 +41,13 @@ type (
 		MetricsAllowedSubnets []string `json:"-" yaml:"metricsAllowedSubnets"`
 		OverlayFSPath         string   `json:"-" yaml:"overlayFSPath"`
 		UseFormalLanguage     bool     `json:"-" yaml:"useFormalLanguage"`
+
+		FooterLinks []FooterLink `json:"footerLinks,omitempty" yaml:"footerLinks"`
+	}
+
+	FooterLink struct {
+		Name string `json:"name" yaml:"name"`
+		URL  string `json:"url" yaml:"url"`
 	}
 )
 

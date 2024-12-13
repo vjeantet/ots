@@ -1,4 +1,4 @@
-FROM luzifer/archlinux as builder
+FROM golang:1-alpine AS builder
 
 ENV CGO_ENABLED=0 \
     GOPATH=/go \
@@ -8,12 +8,11 @@ COPY . /go/src/github.com/Luzifer/ots
 WORKDIR /go/src/github.com/Luzifer/ots
 
 RUN set -ex \
- && pacman --noconfirm -Syy \
+ && apk --no-cache add \
       curl \
       git \
-      go \
       make \
-      nodejs-lts-hydrogen \
+      nodejs-lts \
       npm \
       tar \
       unzip \
@@ -26,7 +25,7 @@ RUN set -ex \
 FROM alpine:latest
 
 LABEL org.opencontainers.image.authors='Knut Ahlers <knut@ahlers.me>' \
-    org.opencontainers.image.version='1.12.0' \
+    org.opencontainers.image.version='1.15.1' \
     org.opencontainers.image.url='https://github.com/Luzifer/ots/pkgs/container/ots' \
     org.opencontainers.image.documentation='https://github.com/Luzifer/ots/wiki' \
     org.opencontainers.image.source='https://github.com/Luzifer/ots' \

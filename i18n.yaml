@@ -4,6 +4,7 @@ reference:
   translators:
     - Luzifer
   translations:
+    alert-insecure-environment: You are accessing this instance using an insecure connection. You will not be able to create or read secrets.
     alert-secret-not-found: This is not the secret you are looking for&hellip; - If you expected the secret to be here it might be compromised as someone else might have opened the link already.
     alert-something-went-wrong: Something went wrong. I'm very sorry about this&hellip;
     btn-create-secret: Create the secret!
@@ -38,12 +39,14 @@ reference:
     text-powered-by: Powered by
     text-pre-reveal-hint: To reveal the secret click this button but be aware doing so will destroy the secret. You can only view it once!
     text-pre-url: 'Your secret was created and stored using this URL:'
+    text-secret-burned: The secret was successfully destroyed.
     text-secret-create-disabled: The creation of new secrets is disabled in this instance.
     title-explanation: This is how it works&hellip;
     title-new-secret: Create a new secret
     title-reading-secret: Reading your secret&hellip;
     title-secret-create-disabled: Secret creation disabled…
     title-secret-created: Secret created!
+    tooltip-burn-secret: Burn Secret now!
     tooltip-copy-to-clipboard: Copy to Clipboard
     tooltip-download-as-file: Download as File
 translations:
@@ -95,6 +98,7 @@ translations:
     translators:
       - Luzifer
     translations:
+      alert-insecure-environment: Du besuchst diese Instanz über eine unsichere Verbindung. Du kannst deswegen keine Secrets erstellen oder lesen.
       alert-secret-not-found: Das ist nicht das Secret, was du suchst&hellip; - Falls du diesen Link noch nicht selbst geöffnet hast, könnte das Secret kompromittiert sein, da jemand anderes den Link geöffnet haben könnte.
       alert-something-went-wrong: Irgendwas ging schief. Entschuldigung&hellip;
       btn-create-secret: Secret erstellen!
@@ -129,15 +133,18 @@ translations:
       text-powered-by: Läuft mit
       text-pre-reveal-hint: Um das Secret anzuzeigen klicke diesen Button aber denk dran, dass das Secret nur einmal angezeigt und dabei gelöscht wird.
       text-pre-url: 'Dein Secret wurde angelegt und unter folgender URL gespeichert:'
+      text-secret-burned: Das Secret wurde zerstört.
       text-secret-create-disabled: Auf dieser Instanz wurde das Erstellen neuer Secrets deaktiviert.
       title-explanation: So funktioniert es&hellip;
       title-new-secret: Erstelle ein neues Secret
       title-reading-secret: Secret auslesen&hellip;
       title-secret-create-disabled: Erstellen von Secrets deaktiviert…
       title-secret-created: Secret erstellt!
+      tooltip-burn-secret: Secret jetzt zerstören!
       tooltip-copy-to-clipboard: In die Zwischenablage kopieren
       tooltip-download-as-file: Als Datei herunterladen
     formalTranslations:
+      alert-insecure-environment: Sie besuchen diese Instanz über eine unsichere Verbindung. Sie können deswegen keine Secrets erstellen oder lesen.
       alert-secret-not-found: Dieses Secret existiert nicht. - Falls Sie diesen Link noch nicht selbst geöffnet haben, könnte der Inhalt kompromittiert sein, da jemand anderes den Link geöffnet haben könnte.
       btn-reveal-secret: Secret anzeigen
       items-explanation:
@@ -367,11 +374,55 @@ translations:
       title-reading-secret: Geheim wordt gelezen&hellip;
       title-secret-create-disabled: Aanmaken geheimen uitgeschakeld...
       title-secret-created: Geheim aangemaakt!
+  nl-BE:
+    deeplLanguage: nl-BE
+    translators: []
+    translations:
+      alert-secret-not-found: De gegevens die je zocht bestaan niet (meer)&hellip; - Als je hier informatie verwachtte dan is de link mogelijk al door iemand anders bekeken!
+      alert-something-went-wrong: Er ging iets verkeerd, sorry&hellip;
+      btn-create-secret: Nieuwe vertrouwelijke info aanmaken!
+      btn-create-secret-processing: Vertrouwelijke info wordt versleuteld...
+      btn-new-secret: Nieuw
+      btn-reveal-secret: Toon mij de vertrouwelijke info!
+      btn-reveal-secret-processing: Vertrouwelijke info wordt ontsleuteld...
+      btn-show-explanation: Hoe werkt dit?
+      expire-default: Standaard termijn
+      expire-n-days: '{n} dag | {n} dagen'
+      expire-n-hours: '{n} uur | {n} uur'
+      expire-n-minutes: '{n} minuut | {n} minuten'
+      expire-n-seconds: '{n} seconde | {n} seconden'
+      items-explanation:
+        - Je vult vertrouwelijke informatie in op deze pagina.
+        - Je browser versleutelt de ingevulde tekst via een automatisch gegenereerd wachtwoord.
+        - Alleen de versleutelde data wordt naar de server gestuurd. (De leesbare versie of het wachtwoord worden nooit verstuurd!)
+        - De server slaat de versleutelde data gedurende een beperkte periode op.
+        - Je geeft de URL met identificatie en het gegenereerde wachtwoord aan de ontvanger.
+        - 'De ontvanger kan de vertrouwelijke informatie exact eenmaal bekijken: indien het niet lukt heeft mogelijk iemand anders de info gezien!'
+        - De versleutelde data wordt van de server gewist van zodra de ontvanger het bekeken heeft.
+      label-expiry: 'Verwijder na:'
+      label-secret-data: 'Vertrouwelijke info:'
+      label-secret-files: 'Bestanden toevoegen:'
+      text-attached-files: De afzender heeft bestanden toegevoegd. Deze werden niet gecontroleerd, gebruik deze enkel als je de afzender vertrouwt!
+      text-burn-hint: 'Bezoek de URL niet zelf: je kan deze slechts eenmaal gebruiken. Geef de URL aan de ontvanger.'
+      text-burn-time: 'Deze vertrouwelijke informatie wordt automatisch gewist indien niet bekeken voor:'
+      text-hint-burned: <strong>Opgelet:</strong> Je ziet deze informatie alleen nu. Je kan het niet meer opnieuw opvragen als je de pagina verlaat.
+      text-max-filesize: 'Maximum grootte: {maxSize}'
+      text-max-filesize-exceeded: 'De bestanden die je toevoegde zijn te groot: {curSize} / {maxSize}'
+      text-powered-by: Mogelijk gemaakt door
+      text-pre-reveal-hint: 'Gebruik deze knop om de vertrouwelijke info op te halen. Let op: Je kan dit slechts eenmaal doen!'
+      text-pre-url: 'Je vertrouwelijke informatie kan opgevraagd worden via deze URL:'
+      text-secret-create-disabled: Het aanmaken van nieuwe geheimen is in dit geval uitgeschakeld.
+      title-explanation: Dit is hoe het werkt&hellip;
+      title-new-secret: Nieuwe vertrouwelijke info opslaan
+      title-reading-secret: Vertrouwelijke info lezen&hellip;
+      title-secret-create-disabled: Geheime creatie uitgeschakeld...
+      title-secret-created: Vertrouwelijke info opgeslaan!
   pl:
     deeplLanguage: pl
     translators:
       - Icikowski
     translations:
+      alert-insecure-environment: Odwiedzasz tę instancję przez niezabezpieczone połączenie. Nie będziesz mógł tworzyć ani odczytywać sekretów.
       alert-secret-not-found: To nie jest sekret, którego szukasz&hellip; - Jeśli spodziewałeś się tu sekretu, to może być on zagrożony, ponieważ ktoś inny mógł już otworzyć ten link.
       alert-something-went-wrong: Coś poszło nie tak. Bardzo mi przykro&hellip;
       btn-create-secret: Stwórz sekret!
@@ -406,12 +457,14 @@ translations:
       text-powered-by: Obsługiwane przez
       text-pre-reveal-hint: Aby odsłonić sekret, naciśnij ten przycisk, jednak wiedz, że to zniszczy sekret. Możesz go zobaczyć tylko raz!
       text-pre-url: 'Twój sekret został stworzony i zachowany pod tym adresem URL:'
+      text-secret-burned: Sekret został pomyślnie zniszczony.
       text-secret-create-disabled: Tworzenie nowych sekretów jest wyłączone na tej instancji.
       title-explanation: Oto, jak to działa&hellip;
       title-new-secret: Stwórz nowy sekret
       title-reading-secret: Odczytywanie Twojego sekretu&hellip;
       title-secret-create-disabled: Tworzenie sekretów wyłączone&hellip;
       title-secret-created: Sekret utworzony!
+      tooltip-burn-secret: Zniszcz sekret teraz!
       tooltip-copy-to-clipboard: Skopiuj do schowka
       tooltip-download-as-file: Pobierz jako plik
   pt-BR:

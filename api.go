@@ -52,6 +52,7 @@ func (a apiServer) Register(r *mux.Router) {
 	r.HandleFunc("/get/{id}", a.handleRead)
 	r.HandleFunc("/isWritable", func(w http.ResponseWriter, _ *http.Request) { w.WriteHeader(http.StatusNoContent) })
 	r.HandleFunc("/settings", a.handleSettings).Methods(http.MethodGet)
+	r.HandleFunc("/healthz", func(w http.ResponseWriter, _ *http.Request) { w.WriteHeader(http.StatusOK) })
 }
 
 func (a apiServer) handleCreate(res http.ResponseWriter, r *http.Request) {
@@ -59,7 +60,7 @@ func (a apiServer) handleCreate(res http.ResponseWriter, r *http.Request) {
 		// As a safeguard against HUGE payloads behind a misconfigured
 		// proxy we take double the maximum secret size after which we
 		// just close the read and cut the connection to the sender.
-		r.Body = http.MaxBytesReader(res, r.Body, cust.MaxSecretSize*2) //nolint:gomnd
+		r.Body = http.MaxBytesReader(res, r.Body, cust.MaxSecretSize*2) //nolint:mnd
 	}
 
 	var (
